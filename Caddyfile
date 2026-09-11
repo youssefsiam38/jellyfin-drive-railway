@@ -6,8 +6,9 @@
 :{$PORT:3000} {
     encode zstd gzip
 
-    @health path /healthz
-    respond @health "healthy" 200
+    handle /healthz {
+        respond "healthy" 200
+    }
 
     redir /jellyfin /jellyfin/ 308
     handle /jellyfin/* {

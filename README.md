@@ -15,7 +15,7 @@ All application state and generated library files live on one persistent `/data`
 
 The template creates one service, one domain, one volume, and random secrets. A 2 GB memory limit is recommended. Railway still carries playback traffic, so its egress charge applies.
 
-Container image: `ghcr.io/youssefsiam38/jellyfin-drive-railway:1.0.1`
+Container image: `ghcr.io/youssefsiam38/jellyfin-drive-railway:1.0.2`
 
 ## First-time setup
 

@@ -21,4 +21,9 @@ retry "${base_url}/openlist/"
 retry "${base_url}/assets/index-legacy-Exg5IBbL.js"
 retry "${base_url}/jellyfin/health"
 
+if [[ "$(curl --noproxy '*' -fsS "${base_url}/healthz")" != "healthy" ]]; then
+  echo "Health endpoint returned an unexpected body" >&2
+  exit 1
+fi
+
 echo "All public routes are healthy."
