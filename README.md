@@ -11,7 +11,7 @@ All application state and generated library files live on one persistent `/data`
 
 ## Deploy
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/REPLACE_AFTER_PUBLISH)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/L2nK8O)
 
 The template creates one service, one domain, one volume, and random secrets. A 2 GB memory limit is recommended. Railway still carries playback traffic, so its egress charge applies.
 
