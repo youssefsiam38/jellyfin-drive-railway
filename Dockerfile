@@ -59,7 +59,6 @@ ENV DATA_ROOT=/data \
     TZ=UTC \
     PORT=3000
 
-VOLUME ["/data"]
 EXPOSE 3000
 
 HEALTHCHECK --interval=30s --timeout=5s --start-period=90s --retries=3 \
