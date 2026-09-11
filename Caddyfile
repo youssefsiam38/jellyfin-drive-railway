@@ -1,0 +1,41 @@
+{
+    admin off
+    auto_https off
+}
+
+:{$PORT:3000} {
+    encode zstd gzip
+
+    @health path /healthz
+    respond @health "healthy" 200
+
+    redir /jellyfin /jellyfin/ 308
+    handle /jellyfin/* {
+        reverse_proxy 127.0.0.1:8096
+    }
+
+    redir /openlist /openlist/ 308
+    handle /openlist/* {
+        reverse_proxy 127.0.0.1:5244
+    }
+
+    # OpenList injects its base path for navigation and APIs, but its bundled
+    # frontend assets are intentionally served from this absolute path.
+    handle /assets/* {
+        reverse_proxy 127.0.0.1:5244
+    }
+
+    handle /api/* {
+        reverse_proxy 127.0.0.1:8080
+    }
+
+    handle /ws/* {
+        reverse_proxy 127.0.0.1:8080
+    }
+
+    handle {
+        root * /opt/ostrm/web
+        try_files {path} /index.html
+        file_server
+    }
+}

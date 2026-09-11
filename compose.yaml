@@ -1,0 +1,15 @@
+services:
+  media:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      OPENLIST_ADMIN_PASSWORD: change-this-before-exposing
+      JWT_SECRET: change-this-to-a-long-random-secret
+      TZ: UTC
+    volumes:
+      - media-data:/data
+    restart: unless-stopped
+
+volumes:
+  media-data:
